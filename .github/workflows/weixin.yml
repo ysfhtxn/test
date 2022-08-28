@@ -32,6 +32,6 @@ jobs:
           git commit -m "update" -a
         
       - name: Push changes
-          uses: ad-m/github-push-action@master
+        uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.OKEN }}
+          github_token: ${{ secrets.TOKEN }}
