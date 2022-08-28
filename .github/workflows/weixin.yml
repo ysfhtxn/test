@@ -37,4 +37,5 @@ jobs:
               REPO: git@github.com:ysfhtxn/blog.git
               BRANCH: gh-pages
               FOLDER: build
-              SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+              SSH_PRIVATE_KEY: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC3eIvwJnf1PxfxJAzTczdqd7M/pZQeyS86JASHrbZWvoZQMfhdd4afWfMShydA+GEwR+th77puzrj36lMV4Jzqq0BkPuvXJ3oY4mBQMFQEj5euSziEEz/RV2HUr/A0CU5Urkb0EZAdfEW0vrhh/+o0b4kxCmGmGvrQCH2mN2vNwbpoZqwzrCKCcKkWwqxDyoyykDhKivpN9TBstl43yZdfMrM3PdMwNJuNMF82z81q4kY0aeyR3cJspxeWhKbGMTmq3TEtnCkxNfZPwsJI+6EfwLBD2CHmO2XQcu7/FM0PAefoLqxKflb2AbEaETk7QAnWAdor2+v+TIdf6fQ6s1MrPJRLyjGqjJQgUFq+ywlYZLirvm2tn6RAeTMXqBa5s97mJE8J6+o4kmm1JhZ3WGRKvNMDew/vLK3sGZhAcbRP/BmWwoEtRJMeNJPAE3UiDHzfyBgts4V7KL5zEskrkz8vZ1mOOOESHOuF3NcMvBUXlncxLxI5WPYPIS6sWG15t5E= 1121656712@qq.com
+
