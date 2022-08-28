@@ -29,5 +29,5 @@ jobs:
         env:
               REPO: self
               BRANCH: master
-              #FOLDER: public/site
+              FOLDER: post
               GITHUB_TOKEN: ${{ secrets.TOKEN }}
