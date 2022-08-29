@@ -18,7 +18,7 @@ jobs:
            #!/bin/sh
            mkdir output
            cat anime.md
-           cat anime.md > output/.build_date.md
+           cat test.txt > output/.build_date.md
 
       - name: Pushes to another repository
         id: push_directory
