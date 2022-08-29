@@ -1,28 +1,29 @@
-name: Deploy to GitHub Pages
-on:
-  push:	
-    branches:	
-      - master
+name: AutoBuild
 
+on:
+  push:
+    branches: master
+    
 jobs:
-  deploy:
-    name: Deploy to GitHub Pages
+  
+  build:
+    name: build
     runs-on: ubuntu-latest    
-    steps:
-    - uses: actions/checkout@master
-    - name: Use Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: 10.x
-    - name: npm install and build
+    steps:    
+    - uses: actions/checkout@v2    
+    - name: npm install
       run: |
         npm install
-        npm run build
+        npm ci
+    - name: npm build
+      run: |
+       npm run build
+       cp 1.txt ./publish/1.txt
 
-    - name: Deploy
-      uses: s0/git-publish-subdir-action@develop
+    - name: publish
+      uses: s0/git-publish-subdir-action@master
       env:
-        REPO: git@github.com:owner/repo.git
+        REPO: git@github.com:ysfhtxn/test2.git
         BRANCH: main
-        FOLDER: build
+        FOLDER: build     
         SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_PRIVATE_KEY }}
