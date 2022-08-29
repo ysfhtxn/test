@@ -3,30 +3,30 @@ name: AutoBuild
 on:
   push:
     branches: master
-    
+
+
 jobs:
-  
   build:
-    name: build
-    runs-on: ubuntu-latest    
-    steps:    
-    - uses: actions/checkout@v2    
-    - name: npm install
-      run: |
-        npm install
-        npm ci
-    - name: npm build
-      run: |
-       npm run build
-       cp 1.txt ./publish/1.txt
-    - name: Pushes to another repository
-      uses: cpina/github-action-push-to-another-repository@main
-      env:
+    runs-on: ubuntu-latest
+    container: pandoc/latex
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install mustache (to update the date)
+        run:  apk add ruby && gem install mustache
+      - name: creates output
+        run:  sh ./build.sh
+      - name: Pushes to another repository
+        id: push_directory
+        uses: cpina/github-action-push-to-another-repository@ssh-deploy-key
+        env:
           SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-      with:
+        with:
           source-directory: 'output'
           destination-github-username: 'ysfhtxn'
           destination-repository-name: 'test2'
           user-email: '1121656712@qq.com'
           target-branch: main
+
+      - name: Test get variable exported by push-to-another-repository
+        run: echo $DESTINATION_CLONED_DIRECTORY
+
