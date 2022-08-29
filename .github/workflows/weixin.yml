@@ -14,7 +14,12 @@ jobs:
       - name: Install mustache (to update the date)
         run:  apk add ruby && gem install mustache
       - name: creates output
-        run:  sh ./build.sh
+        run:  |        
+           #!/bin/sh
+           mkdir output
+           echo "some text" #将文字内容打印在屏幕上
+           date > output/.build_date.txt
+
       - name: Pushes to another repository
         id: push_directory
         uses: cpina/github-action-push-to-another-repository@ssh-deploy-key
