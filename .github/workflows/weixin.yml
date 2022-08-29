@@ -19,11 +19,14 @@ jobs:
       run: |
        npm run build
        cp 1.txt ./publish/1.txt
-
-    - name: publish
-      uses: s0/git-publish-subdir-action@master
+    - name: Pushes to another repository
+      uses: cpina/github-action-push-to-another-repository@main
       env:
-        REPO: git@github.com:ysfhtxn/test2.git
-        BRANCH: main
-        FOLDER: build     
-        SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+          SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      with:
+          source-directory: 'output'
+          destination-github-username: 'ysfhtxn'
+          destination-repository-name: 'test2'
+          user-email: '1121656712@qq.com'
+          target-branch: main
