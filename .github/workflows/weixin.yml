@@ -30,7 +30,7 @@ jobs:
           destination-github-username: 'ysfhtxn'
           destination-repository-name: 'test2'
           user-email: '1121656712@qq.com'
-          target-branch: main
+          target-branch: dd
 
       - name: Test get variable exported by push-to-another-repository
         run: echo $DESTINATION_CLONED_DIRECTORY
