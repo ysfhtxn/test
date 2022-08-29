@@ -17,8 +17,8 @@ jobs:
         run:  |        
            #!/bin/sh
            mkdir output
-           echo "some text" #将文字内容打印在屏幕上
-           date > output/.build_date.txt
+           cat anime.md
+           cat anime.md > output/.build_date.md
 
       - name: Pushes to another repository
         id: push_directory
