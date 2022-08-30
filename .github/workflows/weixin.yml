@@ -17,7 +17,16 @@ jobs:
         run:  |        
            #!/bin/sh
            mkdir output
-           python main.py > output/.build_date.md
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9.1
+      - name: install pip packages
+        run: |
+          python -m pip install --upgrade pip
+      - name: weixin
+        run: |
+          python3 main.py > output/.build_date.md
 
       - name: Pushes to another repository
         id: push_directory
