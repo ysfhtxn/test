@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install mustache (to update the date)
-        run:  apk add ruby && gem install mustache
+      #- name: Install mustache (to update the date)
+       # run:  apk add ruby && gem install mustache
       - name: creates output
         run:  |        
            #!/bin/sh
