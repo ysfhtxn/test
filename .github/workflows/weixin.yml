@@ -25,7 +25,7 @@ jobs:
           python -m pip install --upgrade pip
       - name: weixin
         run: |
-          python3 main.py > output/.build_date.md
+          date > output/.build_date.md
 
       - name: Pushes to another repository
         id: push_directory
