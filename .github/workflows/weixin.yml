@@ -16,6 +16,8 @@ jobs:
         run:  |        
            #!/bin/sh
            mkdir output
+           pwd
+           ls
       - name: Set up Python 3.9
         uses: actions/setup-python@v2
         with:
