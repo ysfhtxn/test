@@ -17,8 +17,7 @@ jobs:
         run:  |        
            #!/bin/sh
            mkdir output
-           cat anime.md
-           cat test.txt > output/.build_date.md
+           python main.py > output/.build_date.md
 
       - name: Pushes to another repository
         id: push_directory
