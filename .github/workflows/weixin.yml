@@ -26,4 +26,4 @@ jobs:
           python -m pip install --upgrade pip
       - name: weixin
         run: |
-          date > anime.md
+          python main.py > /anime.md
