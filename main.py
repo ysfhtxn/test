@@ -12,7 +12,7 @@ god = god + '2'
 god = god + '3'
 god = god + '4'
 
-with open("anime.md", encoding="utf-8") as f:
+with open("anime.md", encoding="utf-8",'w') as f:
         f.write(god)
 
-print(god)
+#print(god)
