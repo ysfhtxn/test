@@ -28,19 +28,3 @@ jobs:
       - name: weixin
         run: |
           date > output/.build_date.md
-
-      - name: Pushes to another repository
-        id: push_directory
-        uses: cpina/github-action-push-to-another-repository@ssh-deploy-key
-        env:
-          SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
-        with:
-          source-directory: 'output'
-          destination-github-username: 'ysfhtxn'
-          destination-repository-name: 'test2'
-          user-email: '1121656712@qq.com'
-          target-branch: dd
-
-      - name: Test get variable exported by push-to-another-repository
-        run: echo $DESTINATION_CLONED_DIRECTORY
-
